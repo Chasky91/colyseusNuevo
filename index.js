@@ -15,10 +15,10 @@ class MiSala extends Room {
       jugador.x = pos.x;
       jugador.y = pos.y;
 
-      console.log(jugador.x, " ", jugador.y)
     },
 
   };
+
 
   onJoin(client) {
     this.state.jugadores.set(client.sessionId, new Jugador());
@@ -34,7 +34,10 @@ class MiSala extends Room {
 const server = defineServer({
   rooms: { mi_sala: defineRoom(MiSala) },
   express: (app) => {
-    app.get("/hola", (req, res) => res.send("Hola desde Express"));
+    app.get("/hola", (req, res) => res.send("Hola desde Express"))
+    app.post("/login", (req, res) => res.send("Hola desde Express"))
+
+
   },
 });
 
