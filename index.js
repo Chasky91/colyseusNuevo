@@ -13,6 +13,7 @@ class MiSala extends Room {
   messages = {
     mover: (client, pos) => {
       const jugador = this.state.jugadores.get(client.sessionId);
+      console.log(client.sessionId);
       jugador.x = pos.x;
       jugador.y = pos.y;
 
