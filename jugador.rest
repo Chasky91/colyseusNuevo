@@ -1,0 +1,40 @@
+###
+POST  http://localhost:2567/jugador/nuevo
+Content-Type: application/json
+
+{
+    "nickname": "milan",
+    "mail": "milan@gmail.com",
+    "contrasenha": "password123"
+}
+
+###
+GET http://localhost:2567/jugador/todos
+
+
+###
+GET http://localhost:2567/jugador/uno/5
+
+
+###
+PUT http://localhost:2567/jugador/actualizar/6
+Content-Type: application/json
+
+{
+    "nickname": "m",
+    "mail": "m@gmail.com",
+    "contrasenha": "m123456"
+}
+
+###
+DELETE http://localhost:2567/jugador/baja/10
+
+
+###
+POST  http://localhost:2567/jugador/loguin
+Content-Type: application/json
+
+{
+    "mail": "m@gmail.com",
+    "contrasenha": "m123456"
+}
