@@ -1,5 +1,6 @@
 import { defineServer, defineRoom, Room } from "colyseus";
 import { schema, t } from "@colyseus/schema";
+import express from "express";
 
 // 1. Estado: cada jugador tiene x, y
 const Jugador = schema({ x: t.number().default(100), y: t.number().default(100) }, "Jugador");
@@ -34,9 +35,12 @@ class MiSala extends Room {
 const server = defineServer({
   rooms: { mi_sala: defineRoom(MiSala) },
   express: (app) => {
+    app.use(express.json())
     app.get("/hola", (req, res) => res.send("Hola desde Express"))
-    app.post("/login", (req, res) => res.send("Hola desde Express"))
-
+    app.post("/login", (req, res) => {
+      console.log(req.body)
+      res.send("Hola desde Express")
+    })
 
   },
 });
